@@ -1,16 +1,20 @@
 {
   "name": "ssii-pai3",
   "version": "1.0.0",
-  "description": "Proyecto de CiberSeguridad. Sockets SSL/TLS.",
-  "main": "servidor.js",
-  "dependencies": {
-    "ejs": "^2.5.8",
-    "express": "^4.16.3",
-    "express-layout": "^0.1.0",
-    "helmet": "^3.12.0"
+  "description": "Proyecto de ciberseguridad 2018",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
-  "devDependencies": {},
-  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Agusnez/ssii-pai3.git"
+  },
   "author": "Puntuality",
-  "license": "MIT"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Agusnez/ssii-pai3/issues"
+  },
+  "homepage": "https://github.com/Agusnez/ssii-pai3#readme"
 }
