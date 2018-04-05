@@ -2,12 +2,12 @@ const tls = require('tls');
 const fs = require('fs');
 
 const options = {
-  // Necessary only if using the client certificate authentication
-  key: fs.readFileSync('store/client-key.pem'),
-  cert: fs.readFileSync('store/client-crt.pem'),
-  requestCert: true,  
-  // Necessary only if the server uses the self-signed certificate
-  ca: [ fs.readFileSync('store/ca-crt.pem') ]
+  key: fs.readFileSync('store/server-key.pem'), // Clave y certificado que presenta al cliente
+  cert: fs.readFileSync('store/server-cert.pem'),
+  isServer: true,
+  requestCert: true,
+  rejectUnauthorized: false,
+  ca: [ fs.readFileSync('store/client-cert.pem') ] // Certificados en los que confía
 };
 
 const server = tls.createServer(options, (socket) => {
@@ -25,6 +25,7 @@ const server = tls.createServer(options, (socket) => {
     socket.on('end', () => {
        server.close();
        console.log('\x1b[1;31m%s\x1b[0m','Desconectado del cliente');
+       process.exit(0);
     });
 
 });

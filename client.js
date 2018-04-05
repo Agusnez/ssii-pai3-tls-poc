@@ -3,14 +3,13 @@ const fs = require('fs');
 const net = require('net');
 
 const options = {
-    // Necessary only if using the client certificate authentication
-    key: fs.readFileSync('store/client-key.pem'),
-    cert: fs.readFileSync('store/client-crt.pem'),
+    //host: '13.92.230.143', // Si el servidor está en otra máquina, se debe especificar la ip de esta.
+    key: fs.readFileSync('store/client-key.pem'), // Credenciales que presenta al servidor
+    cert: fs.readFileSync('store/client-cert.pem'),
     isServer: false,
     requestCert: true,
     rejectUnauthorized: false,
-    // Necessary only if the server uses the self-signed certificate
-    ca: [ fs.readFileSync('store/ca-crt.pem') ]
+    ca: [ fs.readFileSync('store/server-cert.pem') ] // Certificados en los que confía
   };
 
 const socket = tls.connect(8000, options, () => {
